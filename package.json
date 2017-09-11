@@ -1,0 +1,29 @@
+{
+  "name": "image-search-abstration-layer",
+  "version": "1.0.0",
+  "description": "Search for images with a search string and get image URLs, alt text and page URLs for the given results.",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha --timeout 10000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dickyw71/image-search-abstraction-layer.git"
+  },
+  "keywords": [
+    "Image",
+    "Search",
+    "API",
+    "Abstraction",
+    "Layer"
+  ],
+  "author": "Richard Wheatley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dickyw71/image-search-abstraction-layer/issues"
+  },
+  "homepage": "https://github.com/dickyw71/image-search-abstraction-layer#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
