@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/dickyw71/image-search-abstraction-layer#readme",
   "dependencies": {
+    "dotenv": "^4.0.0",
     "express": "^4.15.4",
     "node-fetch": "^1.7.3"
   },
