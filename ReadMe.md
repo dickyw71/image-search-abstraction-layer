@@ -8,3 +8,8 @@
 
 - User Story: I can get a list of the most recently submitted search strings.
 
+### Design notes
+
+### To-do
+- parse the search params from url
+~~- Call google custom search with API key~~ 
