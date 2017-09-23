@@ -13,3 +13,4 @@
 ### To-do
 - parse the search params from url
 ~~- Call google custom search with API key~~ 
+- return an object containing properties 'imgUrl', 'altText' and 'pageUrl'
