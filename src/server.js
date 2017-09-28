@@ -11,10 +11,15 @@ let app = express();
 app.get("/api/imagesearch/:searchString", function(request, response) {
 
     let urlParams = request.params;
-    console.log(urlParams, process.env.CSE_API_KEY);
+ 
+    findImages(urlParams).then(results => {
+        //console.log('Image search', results)
+        response.writeHead(200, {'Content-Type': 'text/plain'});
+        response.end(
+          JSON.stringify(results)
+        );
+    });
 
-    findImages(urlParams);
-    // format results as array of json objects
     // store search in recent search list
     
 

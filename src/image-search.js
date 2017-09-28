@@ -2,13 +2,18 @@ var fetch = require('node-fetch');
 const dotenv = require('dotenv').config();
 
 module.exports = function findImages(urlParams) {
-    // call image search API
-    fetch("https://www.googleapis.com/customsearch/v1?key=" + process.env.CSE_API_KEY + "&cx=" + process.env.CSE_ID + "&q=" + urlParams.searchString + "&searchType=image")
-        .then(response => response.json())
-        .then(json => formatObject(json));
+    // call image search API and return a Promise
+    return new Promise((resolve, reject) => {  
+        fetch("https://www.googleapis.com/customsearch/v1?key=" 
+            + process.env.CSE_API_KEY + "&cx=" + process.env.CSE_ID + "&q=" + urlParams.searchString + "&searchType=image")
+            .then(response => response.json())
+            .then(json => resolve(formatSearchResultsObjectArray(json)))
+            .catch(ex => reject(ex));
+    });
 }
 
-function formatObject(json) {
+// format search results as array of json objects
+function formatSearchResultsObjectArray(json) {
     imageObArr = json.items.map(item => {
         return (
             { 
@@ -24,6 +29,6 @@ function formatObject(json) {
             }
         )
     })
-    console.log(imageObArr);
+    //console.log(imageObArr);
     return imageObArr;
 }
