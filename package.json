@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Search for images with a search string and get image URLs, alt text and page URLs for the given results.",
   "main": "server.js",
+  "babel": ".babelrc",
   "scripts": {
-    "test": "mocha --timeout 10000"
+    "test": "mocha --timeout 10000",
+    "build": "babel src -d lib"
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,8 @@
     "node-fetch": "^1.7.3"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
     "mocha": "^3.5.2"
