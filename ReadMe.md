@@ -11,6 +11,6 @@
 ### Design notes
 
 ### To-do
-- parse the search params from url
+- parse the search params from url including ?offset=2 parameter
 ~~- Call google custom search with API key~~ 
-- return an object containing properties 'imgUrl', 'altText' and 'pageUrl'
+~~- return an object containing properties 'imgUrl', 'altText' and 'pageUrl'~~

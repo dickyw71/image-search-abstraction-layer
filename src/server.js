@@ -11,8 +11,10 @@ let app = express();
 app.get("/api/imagesearch/:searchString", function(request, response) {
 
     let urlParams = request.params;
+    console.log(request.params, request.query);
+
  
-    findImages(urlParams).then(results => {
+    findImages(urlParams, query).then(results => {
         //console.log('Image search', results)
         response.writeHead(200, {'Content-Type': 'text/plain'});
         response.end(
