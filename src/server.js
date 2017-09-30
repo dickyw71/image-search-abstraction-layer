@@ -7,13 +7,15 @@ const findImages = require('./image-search.js');
 
 let app = express();
 
+let requestHistory = [];
+
 // routes
 app.get("/api/imagesearch/:searchString", function(request, response) {
 
     let urlParams = request.params;
+    let query = request.query
     console.log(request.params, request.query);
 
- 
     findImages(urlParams, query).then(results => {
         //console.log('Image search', results)
         response.writeHead(200, {'Content-Type': 'text/plain'});
@@ -23,13 +25,20 @@ app.get("/api/imagesearch/:searchString", function(request, response) {
     });
 
     // store search in recent search list
-    
+    if(requestHistory.length > 9) {
+        requestHistory.shift();
+    }
+    requestHistory.push({ term: urlParams.searchString, when: new Date(Date.now()).toJSON() })
 
 });
 
 app.get("/api/latest/imagesearch", function(request, response) {
-    // return recent search list
 
+    // return recent search list
+    response.writeHead(200, {'Content-Type': 'text/plain'});
+    response.end(
+      JSON.stringify(requestHistory)
+    );  
 });
 
 // listen for requests :)

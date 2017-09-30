@@ -14,3 +14,4 @@
 - parse the search params from url including ?offset=2 parameter
 ~~- Call google custom search with API key~~ 
 ~~- return an object containing properties 'imgUrl', 'altText' and 'pageUrl'~~
+~~- return a list of the must recently submitted search strings~~
