@@ -17,7 +17,6 @@ app.get("/api/imagesearch/:searchString", function(request, response) {
     console.log(request.params, request.query);
 
     findImages(urlParams, query).then(results => {
-        //console.log('Image search', results)
         response.writeHead(200, {'Content-Type': 'text/plain'});
         response.end(
           JSON.stringify(results)
