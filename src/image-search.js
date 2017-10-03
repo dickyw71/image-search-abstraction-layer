@@ -1,11 +1,11 @@
 var fetch = require('node-fetch');
 const dotenv = require('dotenv').config();
 
-module.exports = function findImages(urlParams) {
+module.exports = function findImages(urlParams, query) {
     // call image search API and return a Promise
     return new Promise((resolve, reject) => {  
         fetch("https://www.googleapis.com/customsearch/v1?key=" 
-            + process.env.CSE_API_KEY + "&cx=" + process.env.CSE_ID + "&q=" + urlParams.searchString + "&searchType=image")
+            + process.env.CSE_API_KEY + "&cx=" + process.env.CSE_ID + "&q=" + urlParams.searchString + "&searchType=image" + "&start=" + query.offset || "1")
             .then(response => response.json())
             .then(json => resolve(formatSearchResultsObjectArray(json)))
             .catch(ex => reject(ex));
@@ -14,6 +14,7 @@ module.exports = function findImages(urlParams) {
 
 // format search results as array of json objects
 function formatSearchResultsObjectArray(json) {
+    console.log(json);
     imageObArr = json.items.map(item => {
         return (
             { 
