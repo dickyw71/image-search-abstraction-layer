@@ -15,3 +15,4 @@
 ~~- Call google custom search with API key~~ 
 ~~- return an object containing properties 'imgUrl', 'altText' and 'pageUrl'~~
 ~~- return a list of the must recently submitted search strings~~
+- Handle error object returned from google custom search API
