@@ -16,12 +16,15 @@ app.get("/api/imagesearch/:searchString", function(request, response) {
     let query = request.query
     console.log(request.params, request.query);
 
-    findImages(urlParams, query).then(results => {
-        response.writeHead(200, {'Content-Type': 'text/plain'});
-        response.end(
-          JSON.stringify(results)
-        );
-    });
+    findImages(urlParams, query)
+        .then(results => {
+            response.writeHead(200, {'Content-Type': 'text/plain'});
+            response.end(JSON.stringify(results));
+        })
+        .catch(error => {
+            response.writeHead(error.code, {'Content-Type': 'text/plain'});
+            response.end(JSON.stringify(error));
+        });
 
     // store search in recent search list
     if(requestHistory.length > 9) {
