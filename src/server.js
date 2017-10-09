@@ -1,7 +1,4 @@
 // Server side js
-
-//import express from 'express';
-const dotenv = require('dotenv').config();
 const express = require('express');
 const findImages = require('./image-search.js');
 
