@@ -17,7 +17,7 @@ function validate(query) {
     // validate the query parameter
     let offset = 1;
     if (query.offset) {
-        let offset = Number.isInteger(parseInt(query.offset)) ? parseInt(query.offset) : '1';
+        offset = Number.isInteger(parseInt(query.offset)) ? parseInt(query.offset) : '1';
         if (offset > 1 && offset < 10) {
             offset = offset * 10;
         }
@@ -30,7 +30,6 @@ function validate(query) {
 
 // format search results as array of json objects
 function formatSearchResultsObjectArray(json) {
-    console.log(json);
     let imageObArr = [];
     if(json.items !== undefined) {
         imageObArr = json.items.map(item => {
